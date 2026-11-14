@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{A1B2C3D4-E5F6-4A5B-8C7D-9E0F1A2B3C4D}</ProjectGuid>
+    <RootNamespace>DirectX12CustomLib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;UNICODE;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/utf-8 /permissive- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)packages\directxtex_desktop_win10.2025.10.28.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)packages\directxtex_desktop_win10.2025.10.28.1\native\lib\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>DirectXTex.lib;d3d12.lib;dxgi.lib;dxguid.lib;d3dcompiler.lib;winmm.lib;windowscodecs.lib;ole32.lib;user32.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;UNICODE;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/utf-8 /permissive- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)packages\directxtex_desktop_win10.2025.10.28.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)packages\directxtex_desktop_win10.2025.10.28.1\native\lib\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>DirectXTex.lib;d3d12.lib;dxgi.lib;dxguid.lib;d3dcompiler.lib;winmm.lib;windowscodecs.lib;ole32.lib;user32.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\app\D3d12AppBase.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\ObjTexturesDemoApp.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\LightRainSystem.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\LightRainCircleRenderer.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\DistantBillboardRenderer.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\TerrainRenderer.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\TerrainQuadtree.cpp">
+      <Filter>src\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\ObjTexturesDemoApp_Draw.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\ObjTexturesDemoApp_SceneLoader.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\FrameTiming.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\BoundingBox.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\Frustum.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\Octree.cpp">
+      <Filter>src\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\SceneFit.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\CascadedShadowMaps.cpp">
+      <Filter>src\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\PostProcess.cpp">
+      <Filter>src\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\GBuffer.cpp">
+      <Filter>src\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\RenderingSystem.cpp">
+      <Filter>src\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\d3d12\D3d12_RenderHelpers.cpp">
+      <Filter>src\rendering\d3d12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\importers\Importer_Wavefront_ObjMtl.cpp">
+      <Filter>src\importers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\importers\Importer_Image_DirectXTex.cpp">
+      <Filter>src\importers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\app\D3d12AppBase.h">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\ObjTexturesDemoApp.h">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\LightRainSystem.h">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\LightRainCircleRenderer.h">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\DistantBillboardRenderer.h">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\FrameTiming.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\CascadedShadowMaps.h">
+      <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\PostProcess.h">
+      <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\PostProcessStructures.h">
+      <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\GBuffer.h">
+      <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\ShadowStructures.h">
+      <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\GpuLightStructures.h">
+      <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\RenderingSystem.h">
+      <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\d3d12\D3d12_RenderHelpers.h">
+      <Filter>src\rendering\d3d12</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\d3d12\D3d12_GpuUploadBuffer.h">
+      <Filter>src\rendering\d3d12</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\d3d12\d3dx12.h">
+      <Filter>src\rendering\d3d12</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\MathUtils.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\BoundingBox.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Frustum.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\Octree.h">
+      <Filter>src\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\TerrainQuadtree.h">
+      <Filter>src\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\TerrainRenderer.h">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\SceneFit.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\importers\Importer_Wavefront_ObjMtl.h">
+      <Filter>src\importers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\importers\Importer_Image_DirectXTex.h">
+      <Filter>src\importers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src\app">
+      <UniqueIdentifier>{a1b1c1d1-a1aa-aaaa-aaaa-aaaaaaaaaaaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{a1b1c1d1-c0c0-cccc-cccc-cccccccccccc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\rendering">
+      <UniqueIdentifier>{a1b1c1d1-77e7-7777-7777-777777777777}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\rendering\d3d12">
+      <UniqueIdentifier>{a1b1c1d1-dd12-dddd-dddd-dddddddddddd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\math">
+      <UniqueIdentifier>{a1b1c1d1-5555-5555-5555-555555555555}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scene">
+      <UniqueIdentifier>{a1b1c1d1-6666-6666-6666-666666666666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\importers">
+      <UniqueIdentifier>{a1b1c1d1-f1ee-eeee-eeee-eeeeeeeeeeee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CMakeLists.txt" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(ProjectDir)packages\directxtex_desktop_win10.2025.10.28.1\build\native\directxtex_desktop_win10.targets" Condition="Exists('$(ProjectDir)packages\directxtex_desktop_win10.2025.10.28.1\build\native\directxtex_desktop_win10.targets')" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+  <Target Name="CopyContent" AfterTargets="Build">
+    <ItemGroup>
+      <ContentFiles Include="content\**\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(OutDir)content" />
+    <Copy SourceFiles="@(ContentFiles)" DestinationFolder="$(OutDir)content\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

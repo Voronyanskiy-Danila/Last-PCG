@@ -1,0 +1,61 @@
+# =============================================================================
+# PCG / DirectX12CustomLib — игнор только артефактов сборки и IDE.
+# Рабочая версия в git: исходники C++, HLSL, content/ (модели, текстуры), packages.
+# НЕ добавляйте сюда *.hlsl, content/**/*.obj (Wavefront), *.dds в content/.
+# =============================================================================
+
+# Visual Studio / MSBuild
+bin/
+obj/
+.vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+*.aps
+ipch/
+
+# Папки конфигураций только в корне репозитория (не трогать NuGet: .../native/lib/x64/Debug и т.п.)
+/Debug/
+/Release/
+/x64/
+/ARM64/
+*.exe
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.idb
+*.pgc
+*.pgd
+*.rsp
+*.recipe
+*.FileListAbsolute.txt
+
+# В каталоге obj/ лежат промежуточные .obj линкера — не путать с content/**/*.obj
+obj/**/*.obj
+
+# CMake (локальная папка out-of-source)
+build/
+out/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CMakeUserPresets.json
+Testing/
+
+# Временные файлы
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Локальные скрипты/мусор (при необходимости раскомментируйте)
+# *.local.json
